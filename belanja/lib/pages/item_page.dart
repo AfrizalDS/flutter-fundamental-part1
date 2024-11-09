@@ -1,57 +1,88 @@
-// pages/item_page.dart
-import 'package:belanja/models/item.dart';
-import 'package:belanja/widgets/BottomBar.dart';
 import 'package:flutter/material.dart';
+import 'package:belanja/models/item.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:intl/intl.dart';
 
 class ItemPage extends StatelessWidget {
-  const ItemPage({super.key});
+  final Item item; // Accept Item through constructor
+
+  const ItemPage({super.key, required this.item});
+
+  // Format the price using NumberFormat for Rupiah
+  String formatCurrency(int price) {
+    final formatter =
+        NumberFormat.currency(locale: 'id_ID', symbol: 'Rp ', decimalDigits: 0);
+    return formatter.format(price);
+  }
 
   @override
   Widget build(BuildContext context) {
-    final itemArgs = ModalRoute.of(context)!.settings.arguments as Item;
-
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       appBar: AppBar(
-        title: const Text('Item Details'),
-        backgroundColor: const Color.fromARGB(255, 255, 145, 0),
+        title: const Text("Detail Item"),
+        backgroundColor: Colors.teal,
       ),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Hero(
-              tag: itemArgs.name,
-              child: Image.asset(
-                itemArgs.image,
-                height: 300,
-                width: 300,
-                fit: BoxFit.cover,
-              ),
-            ),
-            const SizedBox(height: 10),
-            Hero(
-              tag: itemArgs.name, // Pastikan tag sama dengan di HomePage
-              child: Text(
-                "Name: ${itemArgs.name}",
-                style: const TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
+            Center(
+              child: Hero(
+                tag: item.photo,
+                child: Image.network(
+                  item.photo,
+                  width: double.infinity,
+                  height: 300,
+                  fit: BoxFit.fill,
                 ),
               ),
             ),
-            const SizedBox(height: 10),
-            Hero(
-              tag: itemArgs.price, // Pastikan tag sama dengan di HomePage
-              child: Text(
-                "Price: \$${itemArgs.price}",
-                style: const TextStyle(fontSize: 20),
+            const SizedBox(height: 16),
+            Center(
+              child: Hero(
+                tag: item.name,
+                child: Text(
+                  item.name,
+                  style: const TextStyle(
+                      fontSize: 24, fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.center,
+                ),
               ),
+            ),
+            const SizedBox(height: 8),
+            Center(
+              child: Text(
+                item.storeName,
+                style: const TextStyle(fontSize: 16, color: Colors.grey),
+              ),
+            ),
+            const SizedBox(height: 16),
+            const Text(
+              'Price:',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+            ),
+            Text(
+              formatCurrency(item.price),
+              style: const TextStyle(fontSize: 22, color: Colors.teal),
+            ),
+            const SizedBox(height: 16),
+            const Text(
+              'Stock:',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+            ),
+            Text(
+              '${item.stock} units',
+              style: const TextStyle(fontSize: 16),
+            ),
+            const SizedBox(height: 16),
+            const Text(
+              'Rating:',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
             ),
           ],
         ),
       ),
-      bottomNavigationBar: const BottomBar(),
     );
   }
 }
