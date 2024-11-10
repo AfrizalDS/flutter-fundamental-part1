@@ -13,7 +13,7 @@ class AppRouter {
           GoRoute(
             path: 'item',
             builder: (context, state) {
-              final item = state.extra as Item; // Passing Item as extra data
+              final item = state.extra as Item;
               return ItemPage(item: item);
             },
           ),

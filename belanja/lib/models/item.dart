@@ -12,6 +12,5 @@ class Item {
     required this.price,
     required this.photo,
     required this.stock,
-    // required this.rating,
   });
 }

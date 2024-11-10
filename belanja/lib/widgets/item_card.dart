@@ -74,16 +74,6 @@ class ItemCard extends StatelessWidget {
                           style: const TextStyle(
                               fontSize: 12, color: Colors.black54),
                         ),
-                        // RatingBarIndicator(
-                        //   rating: item.rating.toDouble(),
-                        //   itemBuilder: (context, index) => const Icon(
-                        //     Icons.star,
-                        //     color: Colors.amber,
-                        //   ),
-                        //   itemCount: 5,
-                        //   itemSize: 14.0,
-                        //   direction: Axis.horizontal,
-                        // ),
                       ],
                     ),
                   ],

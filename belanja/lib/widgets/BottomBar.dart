@@ -8,7 +8,7 @@ class BottomBar extends StatelessWidget {
     return Container(
       width: double.infinity, // Memastikan lebar mengikuti lebar layar
       child: const BottomAppBar(
-        color: const Color.fromARGB(255, 230, 0, 255),
+        color: Color.fromARGB(255, 230, 0, 255),
         child: Padding(
           padding: EdgeInsets.all(8.0),
           child: Text(

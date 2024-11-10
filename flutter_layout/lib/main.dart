@@ -95,10 +95,6 @@ Widget titleSection = Container(
           ],
         ),
       ),
-      const Icon(
-        Icons.star,
-        color: Colors.red,
-      ),
 
       const SizedBox(
           width: 8), // Menambahkan sedikit jarak antara ikon dan teks
@@ -112,7 +108,6 @@ Widget textSection = Container(
   child: const Text(
     'Gunung Batu bukan hanya menawarkan keindahan alam, tetapi juga pengalaman petualangan yang menarik bagi para wisatawan. Dengan segala daya tarik yang dimiliki, gunung ini menjadi salah satu tempat wisata yang wajib dikunjungi saat berada di kota Batu, Malang. '
     '\n\nAfrizal Dwi Septian dan 2241720122 ',
-    
     softWrap: true,
   ),
 );

@@ -19,8 +19,14 @@ class ItemPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Detail Item"),
-        backgroundColor: Colors.teal,
+        title: const Text(
+          "Detail Item",
+          style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
+        ),
+        backgroundColor: const Color.fromARGB(255, 230, 0, 255),
+        iconTheme: const IconThemeData(
+          color: Colors.white, // Set the back button color to white
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -30,8 +36,8 @@ class ItemPage extends StatelessWidget {
             Center(
               child: Hero(
                 tag: item.photo,
-                child: Image.network(
-                  item.photo,
+                child: Image.asset(
+                  'assets/img/${item.photo}',
                   width: double.infinity,
                   height: 300,
                   fit: BoxFit.fill,
@@ -76,10 +82,6 @@ class ItemPage extends StatelessWidget {
               style: const TextStyle(fontSize: 16),
             ),
             const SizedBox(height: 16),
-            const Text(
-              'Rating:',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-            ),
           ],
         ),
       ),
