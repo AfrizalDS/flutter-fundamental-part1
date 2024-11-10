@@ -314,4 +314,6 @@ final itemArgs = ModalRoute.of(context)!.settings.arguments as Item;
 6. Selesaikan Praktikum 5: Navigasi dan Rute tersebut. Cobalah modifikasi menggunakan plugin go_router, lalu dokumentasikan dan push ke repository Anda berupa screenshot setiap hasil pekerjaan beserta penjelasannya di file README.md. Kumpulkan link commit repository GitHub Anda kepada dosen yang telah disepakati!
 
 **Hasil :**
-![alt text](belanja/assets/hasil.P6.gif)
+https://drive.google.com/file/d/1H-cApRxFXF_VLIdMaIUSVJfUc2phkYJp/view?usp=sharing
+![alt text](assetsb/hasil.P6.gif)
+
